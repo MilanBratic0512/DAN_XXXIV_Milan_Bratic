@@ -17,6 +17,7 @@ namespace Zadatak_1
         {
             lock (locker)
             {
+                Console.WriteLine("------------------------------------------");
                 //random generated money
                 int money = rnd.Next(100, 10000);
                 Console.WriteLine("The {0} client are trying raise {1} dinars", name, money);
@@ -41,27 +42,27 @@ namespace Zadatak_1
             Console.WriteLine("How many people want to withdraw money from ATM one");
             //validation
             string input = null;
-            int atmOne = 0;
+            uint atmOne = 0;
             do
             {
                 input = Console.ReadLine();
-                if (!int.TryParse(input, out atmOne))
+                if (!uint.TryParse(input, out atmOne))
                 {
                     Console.WriteLine("Wrong input!");
                 }
-            } while (!int.TryParse(input, out atmOne));
+            } while (!uint.TryParse(input, out atmOne));
             Console.WriteLine("How many people want to withdraw money from ATM two");
             //validation
             string input2 = null;
-            int atmTwo = 0;
+            uint atmTwo = 0;
             do
             {
                 input2 = Console.ReadLine();
-                if (!int.TryParse(input2, out atmTwo))
+                if (!uint.TryParse(input2, out atmTwo))
                 {
                     Console.WriteLine("Wrong input!");
                 }
-            } while (!int.TryParse(input2, out atmTwo));
+            } while (!uint.TryParse(input2, out atmTwo));
             //array of threads, represent total number of client
             Thread[] clients = new Thread[atmOne + atmTwo];
             for (int i = 0; i < clients.Length; i++)
